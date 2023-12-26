@@ -1,0 +1,107 @@
+<template>
+    <div class="LoginCallBack">
+        <v-container class="mb-10">
+            <!-- ローディング画面 -->
+            <div class="text-center">
+                <p class="my-10">ログインしています</p>
+                <v-progress-circular indeterminate size="64" color="primary"></v-progress-circular>
+            </div>
+        </v-container>
+    </div>
+</template>
+  
+<script setup lang="ts">
+import { useLoginProfileStore } from '@/composables/LineProfileStore';
+import { onMounted } from 'vue';
+
+//Cookie Define
+const MAX_AGE = 604800; // 1week
+const lineAccessTokenCookie = useCookie('line_accessToken', { maxAge: MAX_AGE, secure: true });
+const lineIdTokenCookie = useCookie('line_idToken', { maxAge: MAX_AGE, secure: true });
+const linePictureUrlCookie = useCookie('line_pictureUrl', { maxAge: MAX_AGE, secure: true });
+const lineDisplayNameCookie = useCookie('ine_displayName', { maxAge: MAX_AGE, secure: true });
+const lineUserIdCookie = useCookie('line_userId', { maxAge: MAX_AGE, secure: true });
+
+// Router(URL Paths)
+const router = useRouter();
+const route = useRoute();
+const code = route.params.code;
+const url = process.env.LINK_LINE_SIGN_IN!;
+const request = {
+    'code': code
+}
+
+// Constant
+const LINE_PROFILE_URL = "https://api.line.me/v2/profile";
+
+// Store
+const store = useLoginProfileStore();
+
+onMounted(async () => {
+    try {
+        if (!lineAccessTokenCookie.value) {
+            //const response = await axios.post(url, data);
+            const { data: response } = await useFetch < { access_token:string,id_token:string}>(url, {
+                method: 'POST',
+                body: request,
+            });
+
+            // store
+            store.accessToken = response.value?.access_token||null;
+
+            // Cookie
+            lineAccessTokenCookie.value = response.value?.access_token
+            lineIdTokenCookie.value = store.idToken;
+
+        }
+
+    } catch (error) {
+        console.error("認証に失敗しました");
+        console.error(error);
+        router.push('/login/auth-failure');
+    }
+
+    try {
+        let accessToken:string|null;
+        if (lineAccessTokenCookie.value) {
+            accessToken = lineAccessTokenCookie.value
+        } else {
+            accessToken = store.accessToken;
+        }
+
+        const { data: response } = await useFetch<{ pictureUrl: string, displayName: string, userId: string }>(LINE_PROFILE_URL, {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        });
+
+        // store
+        store.pictureUrl = response.value?.pictureUrl||'';
+        store.displayName = response.value?.displayName||'';
+        store.userId = response.value?.userId||'';
+
+        // Cookie Set
+        linePictureUrlCookie.value = store.pictureUrl;
+        lineDisplayNameCookie.value = store.displayName;
+        lineUserIdCookie.value = store.userId;
+
+        router.push('/index');
+
+
+    } catch (error) {
+
+        lineAccessTokenCookie.value = null;
+        lineIdTokenCookie.value = null;
+        linePictureUrlCookie.value = null;
+        lineDisplayNameCookie.value = null;
+        lineUserIdCookie.value = null;
+
+        console.error("プロフィールの取得に失敗しました");
+        console.error(error);
+        router.push('/login/auth-failure');
+
+    }
+
+
+})
+
+
+</script>
