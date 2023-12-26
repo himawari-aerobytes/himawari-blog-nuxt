@@ -1,9 +1,11 @@
 <template>
   <v-app>
-    <Navigation />
-    <SideBar />
-    <NuxtPage />
-    <AppFooter />
-    <Sponsor />
+    <v-main>
+      <Navigation />
+      <SideBar />
+      <NuxtPage />
+      <AppFooter />
+      <Sponsor />
+    </v-main>
   </v-app>
 </template>
