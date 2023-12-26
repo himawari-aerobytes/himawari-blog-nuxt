@@ -1,0 +1,33 @@
+@tailwind base;
+@layer base {
+    h1 {
+      @apply text-5xl my-3;
+    }
+    h2 {
+      @apply text-4xl my-3;
+    }
+    h3 {
+      @apply text-3xl my-3;
+    }
+    h4{
+        @apply text-2xl my-3;
+    }
+    h5{
+        @apply text-xl my-3;
+    }
+    h6{
+        @apply text-lg my-3;
+    }
+    ul{
+        @apply list-disc list-inside text-gray-900 my-3;
+    }
+    
+  }
+  
+@layer base {
+    html {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+  }
+@tailwind components;
+@tailwind utilities;
