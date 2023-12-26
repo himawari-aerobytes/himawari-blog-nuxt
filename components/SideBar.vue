@@ -1,21 +1,20 @@
 <template>
-    <v-navigation-drawer image="https://blog.himawari.engineerseed.com/wp-content/uploads/2023/10/SideBar.png"
-        :permanent="store.isShow" app dark :width="200">
+    <v-navigation-drawer :permanent="store.isShow" app dark :width="200">
         <v-list nav dense>
             <v-list-subheader>Himawari</v-list-subheader>
             <v-list-item>
                 <v-list-item-title>
-                    <v-btn href="/index" block variant="text">ホーム</v-btn>
+                    <v-btn block variant="text"><nuxt-link to="/">ホーム</nuxt-link></v-btn>
                 </v-list-item-title>
             </v-list-item>
             <v-list-item>
                 <v-list-item-title>
-                    <v-btn href="/content/profile" block variant="text">プロフィール</v-btn>
+                    <v-btn block variant="text"><nuxt-link to="/ProfilePage">プロフィール</nuxt-link></v-btn>
                 </v-list-item-title>
             </v-list-item>
             <v-list-item>
                 <v-list-item-title>
-                    <v-btn href="/contact" block variant="text">お問い合わせ</v-btn>
+                    <v-btn block variant="text"><nuxt-link to="/ContactPage">お問い合わせ</nuxt-link></v-btn>
                 </v-list-item-title>
             </v-list-item>
 
