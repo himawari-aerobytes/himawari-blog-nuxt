@@ -12,10 +12,18 @@ class PostService {
             return [] // エラーだった場合は空のpostListにする
         }
     }
-    static async getContent(id: string): Promise<ContentType>{
+    static async getContent(id: string|string[]): Promise<ContentType>{
         try {
-            const res = await RepositoryFactory.post.getPost(id);
+            let idValue:string;
+            if (typeof id === 'string') {
+                idValue = id;
+            } else {
+                idValue = id[0];
+            }
+
+            const res = await RepositoryFactory.post.getPost(idValue);
             return res.data.data.posts.edges[0].node
+            
         } catch {
             console.log("バックエンドからデータを取得できませんでした");
             return <ContentType>Object.create(null);

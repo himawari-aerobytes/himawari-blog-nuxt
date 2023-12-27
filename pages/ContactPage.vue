@@ -37,6 +37,7 @@ import { useVuelidate } from '@vuelidate/core'
 import { email, required } from '@vuelidate/validators'
 import SendDone from '@/components/SendDone.vue';
 import SendFailed from '@/components/SendFailed.vue';
+import ContactFormRepository from '~/repositories/ContactFormRepository';
 
 let isSubmitted = ref(false);
 let isError = ref(false);
@@ -77,9 +78,11 @@ const handleSubmit = async () => {
     contactBody: state.comment
   };
 
-  const { error } = await useFetch(process.env.LINK_CONTACT_FORM!, { body: body, method: 'POST' });
-  isSubmitted.value = true;
-  if (error.value) {
+  try {
+    ContactFormRepository.postMessage(body);
+    isSubmitted.value = true;
+  } catch (error) {
+    console.error(error);
     console.error("送信中にエラーが発生しました");
     isError.value = true;
 
