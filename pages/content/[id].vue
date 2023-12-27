@@ -18,8 +18,7 @@ const post = reactive(<ContentType>new Object());
 const route = useRoute();
 onMounted(async () => {
     try {
-        console.log(route.params.id);
-        const response = await PostService.getContent(route.params.id[0]);
+        const response = await PostService.getContent(route.params.id);
         post.categories = response.categories;
         post.content = response.content;
         post.featuredImage = response.featuredImage;

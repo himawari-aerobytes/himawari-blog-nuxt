@@ -3,7 +3,7 @@
         <div class="pb-3 mb-5 border-b-2">
             <v-row class="ml-1">
                 <v-avatar class="my-auto" size="64">
-                    <img src="@/public/img/TTStsY9S_400x400.jpg" alt="Avatar" />
+                    <img src="/img/TTStsY9S_400x400.jpg" alt="Avatar" />
                 </v-avatar>
                 <v-col>
                     <v-card-title class="headline">羽ばたくエンジニア</v-card-title>
@@ -18,7 +18,7 @@
                 <v-col>
                     <!--職歴欄-->
                     <v-card class="min-w-[300px]">
-                        <img class="object-cover w-full h-[100px]" src="@/public/img/job.jpeg" />
+                        <img class="object-cover w-full h-[100px]" src="/img/job.jpeg" />
                         <v-card-title>
                             職歴･学歴
                         </v-card-title>
@@ -54,7 +54,7 @@
                 <v-col>
                     <!--資格欄-->
                     <v-card class="min-w-[300px]">
-                        <img class="object-cover w-full h-[100px]" src="@/public/img/license.jpeg">
+                        <img class="object-cover w-full h-[100px]" src="/img/license.jpeg">
                         <v-card-title>
                             資格
                         </v-card-title>
@@ -90,7 +90,7 @@
                 <v-col>
                     <!--趣味欄-->
                     <v-card class="min-w-[300px]">
-                        <img class="object-cover w-full h-[100px]" src="@/public/img/hobby.jpeg" />
+                        <img class="object-cover w-full h-[100px]" src="/img/hobby.jpeg" />
                         <v-card-title>
                             趣味
                         </v-card-title>
@@ -127,7 +127,7 @@
                 <v-col>
                     <!--ひとりごと欄-->
                     <v-card class="min-w-[300px]">
-                        <img class="object-cover w-full h-[100px]" src="@/public/img/Monologue.jpeg" />
+                        <img class="object-cover w-full h-[100px]" src="/img/Monologue.jpeg" />
                         <v-card-title>
                             ひとりごと
                         </v-card-title>
