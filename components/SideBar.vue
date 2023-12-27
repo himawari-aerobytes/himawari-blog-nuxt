@@ -3,18 +3,18 @@
         <v-list nav dense>
             <v-list-subheader>Himawari</v-list-subheader>
             <v-list-item>
-                <v-list-item-title>
-                    <v-btn block variant="text"><nuxt-link to="/">ホーム</nuxt-link></v-btn>
+                <v-list-item-title class="text-center">
+                    <nuxt-link to="/">ホーム</nuxt-link>
                 </v-list-item-title>
             </v-list-item>
             <v-list-item>
-                <v-list-item-title>
-                    <v-btn block variant="text"><nuxt-link to="/ProfilePage">プロフィール</nuxt-link></v-btn>
+                <v-list-item-title class="text-center">
+                    <nuxt-link to="/ProfilePage">プロフィール</nuxt-link>
                 </v-list-item-title>
             </v-list-item>
             <v-list-item>
-                <v-list-item-title>
-                    <v-btn block variant="text"><nuxt-link to="/ContactPage">お問い合わせ</nuxt-link></v-btn>
+                <v-list-item-title class="text-center">
+                    <nuxt-link to="/ContactPage">お問い合わせ</nuxt-link>
                 </v-list-item-title>
             </v-list-item>
 
@@ -47,5 +47,6 @@ import { useSidebarStore } from '@/composables/SideBarStore';
 
 
 const store = useSidebarStore();
+const router = useRouter();
 
 </script>
