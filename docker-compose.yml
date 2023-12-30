@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    working_dir: /himawari-blog-nuxt
+    ports:
+      - "3000:3000"
+    tty: true
+    environment:
+      - NODE_ENV=production
+    command: ["yarn", "start"]
+    volumes:
+      - himawari-blog-nuxt:/himawari-blog-nuxt
+
+volumes:
+  himawari-blog-nuxt:
