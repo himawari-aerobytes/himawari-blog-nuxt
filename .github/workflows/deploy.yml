@@ -18,6 +18,7 @@ jobs:
        run: |
          echo "${{ secrets.PRIVATE_KEY }}" > private_key
          chmod 600 private_key
+         ssh -t ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }} "ssh hostA"
          ssh -o ProxyCommand='ssh -W %h:%p -i private_key -p 22 ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }}' -i private_key -p 22 ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }}
 
          echo "${{ secrets.PRIVATE_KEY }}" > private_key
