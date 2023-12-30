@@ -18,4 +18,8 @@ jobs:
        run: |
          echo "${{ secrets.PRIVATE_KEY }}" > private_key
          chmod 600 private_key
+         ssh -oStrictHostKeyChecking=no ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }} -i private_key '
          ssh -oStrictHostKeyChecking=no ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }} -i private_key "cd apps/wordpress && git fetch github:himawari-aerobytes/himawari-blog-nuxt.git && git pull github:himawari-aerobytes/himawari-blog-nuxt.git && cd himawari-blog-nuxt && docker-compose up -d"
+         
+         '
+         
