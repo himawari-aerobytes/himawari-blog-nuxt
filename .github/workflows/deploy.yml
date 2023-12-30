@@ -18,8 +18,7 @@ jobs:
        run: |
          echo "${{ secrets.PRIVATE_KEY }}" > private_key
          chmod 600 private_key
-         ssh -i private_key -fN ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }}:22 \
-                         -L 20:${{ secrets.HOST_NAME }}:22
+         ssh -i private_key -fN ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }}:22 -L 20:${{ secrets.HOST_NAME }}:22
          ssh -p 20 ${{ secrets.USER_NAME }}@localhost -i private_key
          cd apps/wordpress 
          git fetch github:himawari-aerobytes/himawari-blog-nuxt.git
