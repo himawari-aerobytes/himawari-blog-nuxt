@@ -18,7 +18,7 @@ jobs:
        run: |
          echo "${{ secrets.PRIVATE_KEY }}" > private_key
          chmod 600 private_key
-         ssh -i private_key ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }} -t "ssh ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }} -i private_key"
+         ssh -i private_key -t ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }} "ssh -t ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }} -i private_key"
 
          echo "${{ secrets.PRIVATE_KEY }}" > private_key
          chmod 600 private_key 
