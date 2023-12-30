@@ -5,7 +5,7 @@
             <v-card class="pb-3 mb-3 mx-3" v-for="header in articleHeaders" @click="cardClickHandler(header.postId)">
                 <img class="object-cover w-full h-60" v-if="header.featuredImage?.node?.sourceUrl"
                     :src="header.featuredImage?.node?.sourceUrl" />
-                <img class="object-cover" v-else src="@/assets/img/HimawariProjectLogo.png" />
+                <img class="object-cover" v-else src="@/public/img/HimawariProjectLogo.png" />
                 <v-card-title class="font-bold">{{ header.title }}</v-card-title>
                 <v-card-subtitle>{{ extractTagText(header.excerpt) }}</v-card-subtitle>
             </v-card>
