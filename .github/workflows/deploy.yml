@@ -20,6 +20,7 @@ jobs:
          chmod 600 private_key
          ssh -o "StrictHostKeyChecking=no" -o "ConnectTimeout 600" -p 22 -tt ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }} -i private_key
          ssh -o "StrictHostKeyChecking=no" -o "ConnectTimeout 600" -p 22 -tt ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }} -i private_key
+         echo "remote connected"
          cd apps/wordpress 
          git fetch github:himawari-aerobytes/himawari-blog-nuxt.git
          git pull github:himawari-aerobytes/himawari-blog-nuxt.git
