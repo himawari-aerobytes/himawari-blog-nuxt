@@ -15,15 +15,19 @@ jobs:
 
      # デプロイする
      - name: Deploy
-       run: |
-         echo "${{ secrets.PRIVATE_KEY }}" > private_key
-         chmod 600 private_key
-         ssh -p 22 -o "StrictHostKeyChecking=no" -o "ConnectTimeout 600" -oProxyCommand='ssh -W %h:%p ${{ secrets.USER_NAME }}@${{ secrets.SPRINGBOARD_HOST_NAME }} -i private_key -tt nc %h %p' ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }} -i private_key -p 22 "
-         echo "remote connected"
-         cd apps/wordpress 
-         git fetch github:himawari-aerobytes/himawari-blog-nuxt.git
-         git pull github:himawari-aerobytes/himawari-blog-nuxt.git
-         cd himawari-blog-nuxt && docker-compose up -d
-         "
+       uses: appleboy/ssh-action@v1.0.1
+       with:
+         proxy_host: ${{ secrets.SPRINGBOARD_HOST_NAME }}
+         proxy_username: ${{ secrets.USER_NAME }}
+         proxy_key: ${{ secrets.PRIVATE_KEY }}
+         host: ${{ secrets.HOST_NAME }}
+         username: ${{ secrets.USER_NAME }}
+         key: ${{ secrets.PRIVATE_KEY }}
+         script: |
+          echo "remote connected"
+          cd apps/wordpress 
+          git fetch github:himawari-aerobytes/himawari-blog-nuxt.git
+          git pull github:himawari-aerobytes/himawari-blog-nuxt.git
+          cd himawari-blog-nuxt && docker-compose up -d
         
          
