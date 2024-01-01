@@ -23,6 +23,8 @@ jobs:
          host: ${{ secrets.HOST_NAME }}
          username: ${{ secrets.USER_NAME }}
          key: ${{ secrets.PRIVATE_KEY }}
+         timeout: 600
+         command_timeout: 600
          script: |
           echo "remote connected"
           cd apps/wordpress 
