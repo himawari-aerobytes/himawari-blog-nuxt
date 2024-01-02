@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: '/app/'
+    baseURL: '/app/',
+    buildAssetsDir:'/app/_nuxt/'
   }
 })
