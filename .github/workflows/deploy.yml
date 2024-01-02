@@ -27,9 +27,8 @@ jobs:
          command_timeout: 600
          script: |
           echo "remote connected"
-          cd apps/wordpress 
-          git fetch github:himawari-aerobytes/himawari-blog-nuxt.git
-          git pull github:himawari-aerobytes/himawari-blog-nuxt.git
-          cd himawari-blog-nuxt && docker-compose up -d
+          cd apps/wordpress/himawari-blog-nuxt 
+          git pull
+          docker-compose up -d
         
          
