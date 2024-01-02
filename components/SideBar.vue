@@ -45,7 +45,6 @@
 <script setup lang="ts">
 import { useSidebarStore } from '@/composables/SideBarStore';
 
-
 const store = useSidebarStore();
 const router = useRouter();
 

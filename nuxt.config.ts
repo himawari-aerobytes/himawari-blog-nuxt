@@ -11,10 +11,5 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     }
-  },
-  app: {
-    baseURL: '/app/',
-    buildAssetsDir:'/app/_nuxt/'
-  },
-  buildDir: './app/.nuxt'
+  }
 })
