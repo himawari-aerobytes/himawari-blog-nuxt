@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosBase = axios.create({
-    baseURL: "https://blog.himawari.engineerseed.com/cms/",
+    baseURL: "https://blog.himawari.engineerseed.com/cms",
     headers: {
         'Content-Type': 'application/json'
     }
