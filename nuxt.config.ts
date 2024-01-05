@@ -11,5 +11,6 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     }
-  }
+  },
+  ssr:true
 })
