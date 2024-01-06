@@ -7,4 +7,4 @@ RUN apk update && \
     apk add git && \
     npm install -g npm@latest nuxi nuxt3
 RUN yarn install
-RUN yarn nuxi build
+RUN yarn build
