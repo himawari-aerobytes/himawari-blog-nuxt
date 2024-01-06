@@ -38,7 +38,7 @@
 </template>
     
 <script setup lang="ts">
-import LoginPage from '@/pages/app/LoginPage.vue';
+import LoginPage from '@/pages/LoginPage.vue';
 import { useLoginProfileStore } from '@/composables/LineProfileStore';
 import { useSidebarStore } from '@/composables/SideBarStore';
 import { ref } from 'vue';
