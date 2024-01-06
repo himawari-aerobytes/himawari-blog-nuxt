@@ -13,7 +13,13 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL:'/app'
+    baseURL: '/app/',
+    
+  },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
   },
   ssr:true
 })
