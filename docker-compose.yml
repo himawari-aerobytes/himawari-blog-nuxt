@@ -10,8 +10,4 @@ services:
     environment:
       - NODE_ENV=production
     command: ["yarn", "start"]
-    volumes:
-      - himawari-blog-nuxt:/himawari-blog-nuxt
 
-volumes:
-  himawari-blog-nuxt:
