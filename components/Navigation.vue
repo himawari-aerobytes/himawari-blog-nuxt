@@ -1,6 +1,6 @@
 <template>
-    <div class="mb-3 bg-orange-600">
-        <v-app-bar app>
+    <div class="mb-3 ">
+        <v-app-bar color="orange" app>
             <v-btn class="xl:hidden text-white" @click="sideBarStore.changeShow" icon>
                 <v-icon>mdi-menu</v-icon>
 
@@ -19,7 +19,7 @@
 
                     <v-menu activator="#menu-activator">
                         <v-list>
-                            <v-list-item class="bg-red-600 text-white">
+                            <v-list-item class="text-white">
                                 <v-list-item-title @click="logout">ログアウトする</v-list-item-title>
                             </v-list-item>
                         </v-list>
