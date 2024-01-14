@@ -27,7 +27,7 @@ jobs:
           echo "remote connected"
           cd apps/wordpress/himawari-blog-nuxt 
           git pull
-          docker build .
+          docker build --no-cache .
           docker-compose restart
         
          
