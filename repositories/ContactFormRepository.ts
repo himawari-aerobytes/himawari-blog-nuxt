@@ -7,9 +7,5 @@ export default class ContactFormRepository{
       method: 'POST',
       body: body,
   });
-        // await axios.post(
-        //   process.env.LINK_CONTACT_FORM!,
-        //     JSON.stringify(body)
-        //   );
     }
 }
