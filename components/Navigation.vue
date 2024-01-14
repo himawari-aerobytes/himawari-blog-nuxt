@@ -1,7 +1,6 @@
 <template>
-    <div class="mb-3">
-        <v-app-bar image="https://blog.himawari.engineerseed.com/wp-content/uploads/2023/09/myedit_ai_image_0820164506.jpg"
-            app>
+    <div class="mb-3 bg-orange-600">
+        <v-app-bar app>
             <v-btn class="xl:hidden text-white" @click="sideBarStore.changeShow" icon>
                 <v-icon>mdi-menu</v-icon>
 
