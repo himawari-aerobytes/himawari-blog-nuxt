@@ -10,4 +10,5 @@ services:
     environment:
       - NODE_ENV=production
     command: ["yarn", "start"]
+    restart: always
 
