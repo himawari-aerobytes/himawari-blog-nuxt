@@ -1,9 +1,9 @@
 <template>
     <v-container class=" xl:px-[200px]">
-        <h1 class="text-5xl text-center text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
         <div class="mb-5 w-full">
             <img class="object-scale-down h-[32rem] w-full" :src="post?.featuredImage?.node?.sourceUrl" />
         </div>
+        <h1 class="text-5xl text-left text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
         <p class="ml-3 py-4">カテゴリ {{ post.categories?.nodes.map(e => e.name).join(",") }}</p>
         <div class="[&>p]:py-4" v-html="post.content"></div>
     </v-container>
@@ -37,7 +37,7 @@ onMounted(async () => {
     color: #f29738;
     /*文字色*/
     /*線の種類（点線）2px 線色*/
-    border-bottom: dashed 2px #f29738;
+    border-bottom:solid 2px #f29738;
 }
 
 :deep(h2) {
