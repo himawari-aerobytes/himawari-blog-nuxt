@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       meta: [
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Himawari' },
-        { property: 'og:image', content: '/himawari.ico', },
+        { property: 'og:image', content: '/app/himawari.ico', },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/himawari.ico' }
