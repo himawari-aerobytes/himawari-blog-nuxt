@@ -14,6 +14,19 @@ export default defineNuxtConfig({
   },
   app: {
     baseURL: '/app/',
+    head: {
+      htmlAttrs: {
+        lang: 'ja', prefix: 'og: https://ogp.me/ns#'
+      },
+      meta: [
+        { property: 'og:type', content: 'website' },
+        { property: 'og:site_name', content: 'Himawari' },
+        { property: 'og:image', content: '/himawari.ico', },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/himawari.ico' }
+      ],
+    }
     
   }
 })
