@@ -1,9 +1,9 @@
 <template>
     <v-container class=" xl:px-[200px]">
         <div class="mb-5 w-full">
-            <img class="object-scale-down mx-auto" :src="post?.featuredImage?.node?.sourceUrl" />
+            <img class="object-contain m-auto" :src="post?.featuredImage?.node?.sourceUrl" />
         </div>
-        <h1 class="text-5xl text-left text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
+        <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
         <p class="ml-3 py-4">カテゴリ {{ post.categories?.nodes.map(e => e.name).join(",") }}</p>
         <div class="[&>p]:py-4" v-html="post.content"></div>
     </v-container>
