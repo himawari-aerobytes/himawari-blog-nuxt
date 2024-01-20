@@ -4,7 +4,7 @@
             <img class="object-contain m-auto" :src="post?.featuredImage?.node?.sourceUrl" />
         </div>
         <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
-        <p class="ml-3 py-4">カテゴリ {{ post.categories?.nodes.map(e => e.name).join(",") }}</p>
+        <p class="category">カテゴリ {{ post.categories?.nodes.map(e => e.name).join(",") }}</p>
         <div class="[&>p]:py-4" v-html="post.content"></div>
     </v-container>
 </template>
@@ -116,5 +116,16 @@ onMounted(async () => {
 :deep(.youtube iframe) {
     width: 100%;
     height: 100%;
+}
+.category{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background: #f4f4f4;
+    border-left: solid 6px #5bb7ae;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+.category p {
+    margin: 0; 
+    padding: 0;
 }
 </style>
