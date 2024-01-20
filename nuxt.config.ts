@@ -15,12 +15,13 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/app/',
     head: {
+      title:'Himawari Project',
       htmlAttrs: {
         lang: 'ja', prefix: 'og: https://ogp.me/ns#'
       },
       meta: [
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'Himawari' },
+        { property: 'og:site_name', content: 'Himawari Project' },
         { property: 'og:image', content: '/app/himawari.ico', },
       ],
       link: [
