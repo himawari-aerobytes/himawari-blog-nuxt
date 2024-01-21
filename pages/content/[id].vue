@@ -117,13 +117,26 @@ onMounted(async () => {
     width: 100%;
     height: 100%;
 }
+
 .category{
-    padding: 0.5em 1em;
-    margin: 1em 0;
-    background: #f4f4f4;
-    border-left: solid 6px #5bb7ae;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    max-width: 200px;
 }
+.category:before, .category:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: black;
+}
+.category:before {left: 10px;}
+.category:after {right: 10px;}
 .category p {
     margin: 0; 
     padding: 0;
