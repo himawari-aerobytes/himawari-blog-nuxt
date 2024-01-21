@@ -26,6 +26,7 @@ jobs:
          script: |
           echo "remote connected"
           cd apps/wordpress/himawari-blog-nuxt 
+          docker image prune -f
           git pull
           docker-compose up -d --build
         
