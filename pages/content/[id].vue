@@ -34,10 +34,12 @@ onMounted(async () => {
 
 <style scoped>
 :deep(h1) {
-    color: #f29738;
+    color: #494949;
+    /* color: #f29738; */
     /*文字色*/
     /*線の種類（点線）2px 線色*/
-    border-bottom: solid 2px #f29738;
+    border-left: 5px solid #e6e6e6;
+    /*border-bottom: solid 2px #f29738;*/
 }
 
 :deep(h2) {
