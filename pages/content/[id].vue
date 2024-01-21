@@ -1,8 +1,5 @@
 <template>
     <v-container class=" xl:px-[200px]">
-        <div class="mb-5 w-full">
-            <img class="object-contain m-auto" :src="post?.featuredImage?.node?.sourceUrl" />
-        </div>
         <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
         <p class="category">カテゴリ {{ post.categories?.nodes.map(e => e.name).join(",") }}</p>
         <div class="[&>p]:py-4" v-html="post.content"></div>
@@ -120,15 +117,17 @@ onMounted(async () => {
     height: 100%;
 }
 
-.category{
-    margin:2em 0;
+.category {
+    margin: 2em 0;
     position: relative;
     padding: 0.5em 1.5em;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
     max-width: 200px;
 }
-.category:before, .category:after{
+
+.category:before,
+.category:after {
     content: '';
     position: absolute;
     top: -10px;
@@ -137,10 +136,16 @@ onMounted(async () => {
     height: calc(100% + 20px);
     background-color: black;
 }
-.category:before {left: 10px;}
-.category:after {right: 10px;}
-.category p {
-    margin: 0; 
-    padding: 0;
+
+.category:before {
+    left: 10px;
 }
-</style>
+
+.category:after {
+    right: 10px;
+}
+
+.category p {
+    margin: 0;
+    padding: 0;
+}</style>
