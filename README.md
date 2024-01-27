@@ -74,10 +74,10 @@ yarn preview
 bun run preview
 
 # environment
-LINK_CONTACT_FORM=
 SIDE_BAR_IMAGE=
 LINE_CHANNEL_ID=
 LINK_LINE_SIGN_IN=
+CONTACT_LINK=
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
