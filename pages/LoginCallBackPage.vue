@@ -26,7 +26,11 @@ const lineUserIdCookie = useCookie('line_userId', { maxAge: MAX_AGE, secure: tru
 const router = useRouter();
 const route = useRoute();
 const code = route.params.code;
-const url = process.env.LINK_LINE_SIGN_IN!;
+
+const runtimeConfig = useRuntimeConfig();
+const url = runtimeConfig.public.linkLineSignIn;
+
+
 const request = {
     'code': code
 }

@@ -6,7 +6,10 @@
 
 const login = () => {
     const response_type = 'code';
-    const client_id = process.env.LINE_CHANNEL_ID!;
+
+    const runtimeConfig = useRuntimeConfig();
+    const client_id = runtimeConfig.public.lineChannelId;
+    
     const redirect_uri = 'https://blog.himawari.engineerseed.com/app/login/line/callback'; //設定したコールバック関数をURLエンコードしたもの
     const state = '12345abcde';//一旦ここはテキトー
     const scope = 'profile%20openid';

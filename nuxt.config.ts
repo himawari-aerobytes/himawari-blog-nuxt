@@ -6,6 +6,13 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  runtimeConfig: {
+    public: {
+      contactLink: process.env.CONTACT_LINK,
+      lineChannelId: process.env.LINE_CHANNEL_ID,
+      linkLineSignIn: process.env.LINK_LINE_SIGN_IN 
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -25,7 +32,7 @@ export default defineNuxtConfig({
         { property: 'og:image', content: '/app/himawari.ico', },
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/himawari.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: '/app/himawari.ico' }
       ],
     }
     
