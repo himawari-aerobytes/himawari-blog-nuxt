@@ -4,7 +4,7 @@ export default class ContactFormRepository{
   static async postMessage(body: ContactRequestType) {
     console.log(body);
     const runtimeConfig = useRuntimeConfig();
-    await useFetch(runtimeConfig.public.contactLink, {
+    await useFetch('https://wdruieg1nl.execute-api.ap-northeast-1.amazonaws.com/himawari-blog-contact-form', {
       method: 'POST',
       body: body,
   });
