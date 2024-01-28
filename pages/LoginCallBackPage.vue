@@ -45,13 +45,13 @@ onMounted(async () => {
     try {
         if (!lineAccessTokenCookie.value) {
             //const response = await axios.post(url, data);
-            const { data: response } = await useFetch < { access_token:string,id_token:string}>(url, {
+            const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
                 method: 'POST',
                 body: request,
             });
 
             // store
-            store.accessToken = response.value?.access_token||null;
+            store.accessToken = response.value?.access_token || null;
 
             // Cookie
             lineAccessTokenCookie.value = response.value?.access_token
@@ -66,7 +66,7 @@ onMounted(async () => {
     }
 
     try {
-        let accessToken:string|null;
+        let accessToken: string | null;
         if (lineAccessTokenCookie.value) {
             accessToken = lineAccessTokenCookie.value
         } else {
@@ -78,16 +78,16 @@ onMounted(async () => {
         });
 
         // store
-        store.pictureUrl = response.value?.pictureUrl||'';
-        store.displayName = response.value?.displayName||'';
-        store.userId = response.value?.userId||'';
+        store.pictureUrl = response.value?.pictureUrl || '';
+        store.displayName = response.value?.displayName || '';
+        store.userId = response.value?.userId || '';
 
         // Cookie Set
         linePictureUrlCookie.value = store.pictureUrl;
         lineDisplayNameCookie.value = store.displayName;
         lineUserIdCookie.value = store.userId;
 
-        router.push('/index');
+        router.push('/');
 
 
     } catch (error) {
