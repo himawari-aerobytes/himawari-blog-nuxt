@@ -6,8 +6,6 @@
 
 const login = () => {
     const response_type = 'code';
-
-    const runtimeConfig = useRuntimeConfig();
     const client_id = 2001255947;
 
     const redirect_uri = 'https://blog.himawari.engineerseed.com/app/LoginCallBackPage'; //設定したコールバック関数をURLエンコードしたもの

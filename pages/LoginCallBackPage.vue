@@ -44,7 +44,6 @@ const store = useLoginProfileStore();
 onMounted(async () => {
     try {
         if (!lineAccessTokenCookie.value) {
-            //const response = await axios.post(url, data);
             const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
                 method: 'POST',
                 body: request,
