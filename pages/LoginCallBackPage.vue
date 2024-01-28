@@ -28,7 +28,7 @@ const route = useRoute();
 const code = route.params.code;
 
 const runtimeConfig = useRuntimeConfig();
-const url = 'https://wdruieg1nl.execute-api.ap-northeast-1.amazonaws.com/himawari-line-login-nuxt';
+const url = 'https://wdruieg1nl.execute-api.ap-northeast-1.amazonaws.com/himawari-line-login-1';
 
 
 const request = {
