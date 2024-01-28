@@ -12,8 +12,8 @@
             <v-divider class="mb-4"></v-divider>
 
             <div class="text-end">
-                <v-btn @click="() => $router.push({ name: '/index' })" class=" text-none" color="success" rounded
-                    variant="flat" width="90">
+                <v-btn @click="() => $router.push({ name: '/' })" class=" text-none" color="success" rounded variant="flat"
+                    width="90">
                     <router-link to="/">戻る</router-link>
                 </v-btn>
             </div>
