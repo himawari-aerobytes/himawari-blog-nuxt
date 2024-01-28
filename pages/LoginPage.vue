@@ -10,7 +10,7 @@ const login = () => {
     const runtimeConfig = useRuntimeConfig();
     const client_id = 2002463472;
 
-    const redirect_uri = 'https://blog.himawari.engineerseed.com/app/login/line/callback'; //設定したコールバック関数をURLエンコードしたもの
+    const redirect_uri = 'https://blog.himawari.engineerseed.com/app/LoginCallBackPage'; //設定したコールバック関数をURLエンコードしたもの
     const state = '12345abcde';//一旦ここはテキトー
     const scope = 'profile%20openid';
     const nonce = '09876xyz';//一旦ここはテキトー
