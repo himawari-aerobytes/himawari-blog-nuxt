@@ -1,7 +1,12 @@
 <template>
     <v-container class=" xl:px-[200px]">
-        <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-20">{{ post.title }}</h1>
-        <p class="category">カテゴリ {{ post.categories?.nodes.map(e => e.name).join(",") }}</p>
+        <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-5">{{ post.title }}</h1>
+        <div class="grid grid-cols-12">
+            <div v-for="category in post.categories?.nodes.map(e => e.name)">
+                <p class="category">{{ category }}</p>
+            </div>
+        </div>
+
         <div class="[&>p]:py-4" v-html="post.content"></div>
     </v-container>
 </template>
@@ -32,11 +37,8 @@ onMounted(async () => {
 <style scoped>
 :deep(h1) {
     color: #494949;
-    /* color: #f29738; */
-    /*文字色*/
-    /*線の種類（点線）2px 線色*/
     border-left: 5px solid #e6e6e6;
-    /*border-bottom: solid 2px #f29738;*/
+    padding: 1rem 2rem;
 }
 
 :deep(h2) {
@@ -51,19 +53,13 @@ onMounted(async () => {
 }
 
 :deep(h3) {
-    padding: 0.25em 0.5em;
-    /*上下 左右の余白*/
     color: #494949;
-    /*文字色*/
-    background: transparent;
-    /*背景透明に*/
-    border-left: solid 5px #7db4e6;
-    /*左線*/
+    font-weight: bold;
+
 }
 
 :deep(h4) {
-    border-bottom: solid 3px skyblue;
-    position: relative;
+    font-weight: bold;
 }
 
 :deep(h4:after) {
@@ -118,34 +114,15 @@ onMounted(async () => {
 }
 
 .category {
+    padding: 0.5em 1em;
     margin: 2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px black;
-    border-bottom: solid 2px black;
-    max-width: 200px;
-}
-
-.category:before,
-.category:after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: black;
-}
-
-.category:before {
-    left: 10px;
-}
-
-.category:after {
-    right: 10px;
+    color: #5f5f5f;
+    background: #edeeee;
+    /*背景色*/
 }
 
 .category p {
     margin: 0;
     padding: 0;
-}</style>
+}
+</style>
