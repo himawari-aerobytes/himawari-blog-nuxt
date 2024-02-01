@@ -1,9 +1,9 @@
 <template>
     <v-container class=" xl:px-[200px]">
         <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-5">{{ post.title }}</h1>
-        <div class="grid sm:grid-cols-12">
-            <div class="sm:col-span-2" v-for="category in post.categories?.nodes.map(e => e.name)">
-                <p class="category">{{ category }}</p>
+        <div>
+            <div class="category" v-for="category in post.categories?.nodes.map(e => e.name)">
+                <p>{{ category }}</p>
             </div>
         </div>
 
@@ -116,6 +116,8 @@ onMounted(async () => {
     margin: 2em 0;
     color: #5f5f5f;
     background: #edeeee;
+    width: 6rem;
+    height: 2.5rem;
     /*背景色*/
 }
 
