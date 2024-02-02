@@ -32,7 +32,7 @@ onMounted(() => {
 let articleHeaders: Ref<PostType[]> = ref(new Array());
 
 const getArticleHeaders = async () => {
-    articleHeaders.value = await PostService.getList();
+    articleHeaders.value = (await PostService.getList()).filter(e => isIncludeKeyWord(e.categories.nodes, 'ブログ'));
 }
 
 const extractTagText = (target: string) => {
@@ -51,6 +51,11 @@ const extractTagText = (target: string) => {
 
 const cardClickHandler = (postId: string) => {
     router.push(`/content/${postId}`);
+
+}
+
+const isIncludeKeyWord = (array: CategoriesNode[], keyword: string): boolean => {
+    return array.filter(e => e.name === keyword).length > 0;
 
 }
 
