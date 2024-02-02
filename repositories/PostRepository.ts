@@ -21,6 +21,11 @@ class PostRepository {
                   }
                 }
                 date
+                categories {
+                  nodes {
+                    name
+                  }
+                }
               }
             }
           }

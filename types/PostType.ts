@@ -7,10 +7,7 @@ interface PostType {
     author:{
         username:string
     }
-    categories:{
-        description:string
-        categoryId:string
-    }
+    categories:Categories
     featuredImage:{
         node:{
             sourceUrl:string

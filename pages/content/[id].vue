@@ -1,8 +1,8 @@
 <template>
     <v-container class=" xl:px-[200px]">
         <h1 class="text-3xl font-bold text-left text-[#f29738] mt-3 mb-5">{{ post.title }}</h1>
-        <div>
-            <div class="category" v-for="category in post.categories?.nodes.map(e => e.name)">
+        <div class="flex">
+            <div class="category" v-for="category in categories">
                 <p>{{ category }}</p>
             </div>
         </div>
@@ -18,6 +18,9 @@ import { onMounted } from 'vue';
 const post = reactive(<ContentType>new Object());
 
 const route = useRoute();
+
+let categories: string[] | null=null;
+
 onMounted(async () => {
     try {
         const response = await PostService.getContent(route.params.id);
@@ -26,9 +29,13 @@ onMounted(async () => {
         post.featuredImage = response.featuredImage;
         post.id = response.id;
         post.title = response.title;
+        categories = post.categories.nodes.map(e => e.name).filter(e => e !== 'ブログ')
+
     } catch (e: any) {
         console.error(e);
     }
+
+
 
 });
 
@@ -113,7 +120,7 @@ onMounted(async () => {
 
 .category {
     padding: 0.5em 1em;
-    margin: 2em 0;
+    margin: 2em 0.3rem;
     color: #5f5f5f;
     background: #edeeee;
     width: 6rem;
