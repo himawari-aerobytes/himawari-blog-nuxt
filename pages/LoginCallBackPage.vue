@@ -50,6 +50,10 @@ onMounted(async () => {
                 body: JSON.stringify(request)
             });
 
+            if (!response.ok) {
+                throw new Error("Tokenの取得に失敗しました。")
+            }
+
             // const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
             //     method: 'POST',
             //     body: request,
