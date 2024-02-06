@@ -1,18 +1,20 @@
 <template>
-    <h3 class="ml-3 tracking-widest">最新の投稿</h3>
-    <div class="w-full bg-slate-200 grid md:grid-cols-3 py-3 justify-center">
-        <template v-if="articleHeaders.length !== 0">
-            <v-card class="pb-3 mb-3 mx-3" v-for="header in articleHeaders" @click="cardClickHandler(header.postId)">
-                <img class="object-cover w-full h-60" v-if="header.featuredImage?.node?.sourceUrl"
-                    :src="header.featuredImage?.node?.sourceUrl" />
-                <img class="object-cover" v-else src="@/public/img/HimawariProjectLogo.png" />
-                <v-card-title class="font-bold">{{ header.title }}</v-card-title>
-                <v-card-subtitle>{{ extractTagText(header.excerpt) }}</v-card-subtitle>
-            </v-card>
-        </template>
-        <template v-else>
-            <blog-server-not-found class="pb-3 mb-3 mx-3 col-span-3" :is-show="true" />
-        </template>
+    <div class="mx-1">
+        <h3 class="ml-3 tracking-widest">最新の投稿</h3>
+        <div class="w-full bg-slate-200 grid md:grid-cols-3 py-3 justify-center">
+            <template v-if="articleHeaders.length !== 0">
+                <v-card class="pb-3 mb-3 mx-3" v-for="header in articleHeaders" @click="cardClickHandler(header.postId)">
+                    <img class="object-cover w-full h-60" v-if="header.featuredImage?.node?.sourceUrl"
+                        :src="header.featuredImage?.node?.sourceUrl" />
+                    <img class="object-cover" v-else src="@/public/img/HimawariProjectLogo.png" />
+                    <v-card-title class="font-bold">{{ header.title }}</v-card-title>
+                    <v-card-subtitle>{{ extractTagText(header.excerpt) }}</v-card-subtitle>
+                </v-card>
+            </template>
+            <template v-else>
+                <blog-server-not-found class="pb-3 mb-3 mx-3 col-span-3" :is-show="true" />
+            </template>
+        </div>
     </div>
 </template>
 
