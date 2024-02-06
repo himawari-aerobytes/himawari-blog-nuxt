@@ -72,6 +72,8 @@ onMounted(async () => {
             accessToken = store.accessToken;
         }
 
+        console.log(accessToken);
+
         const { data: response } = await useFetch<{ pictureUrl: string, displayName: string, userId: string }>(LINE_PROFILE_URL, {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
