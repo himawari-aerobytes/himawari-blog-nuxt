@@ -44,20 +44,26 @@ const store = useLoginProfileStore();
 onMounted(async () => {
     try {
         if (!lineAccessTokenCookie.value) {
-            const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
+
+            const response = await fetch(url, {
                 method: 'POST',
-                body: request,
+                body: JSON.stringify(request)
             });
 
+            // const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
+            //     method: 'POST',
+            //     body: request,
+            // });
+
             // store
-            store.accessToken = response.value?.access_token || null;
+            // store.accessToken = response.value?.access_token || null;
             console.log(`response.value`);
-            console.log(response);
+            console.log(response.json());
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
             // Cookie
-            lineAccessTokenCookie.value = response.value?.access_token;
+            // lineAccessTokenCookie.value = response.value?.access_token;
             lineIdTokenCookie.value = store.idToken;
             console.log(`cookieにセットした値は、${lineAccessTokenCookie.value}です。`);
 
