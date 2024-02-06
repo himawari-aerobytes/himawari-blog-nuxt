@@ -52,7 +52,7 @@ onMounted(async () => {
             // store
             store.accessToken = response.value?.access_token || null;
             console.log(`response.value`);
-            console.log(response.value);
+            console.log(response);
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
