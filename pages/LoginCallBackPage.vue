@@ -51,10 +51,12 @@ onMounted(async () => {
 
             // store
             store.accessToken = response.value?.access_token || null;
+            console.log(`storeにセットした値は、${store.accessToken}です。`);
 
             // Cookie
-            lineAccessTokenCookie.value = response.value?.access_token
+            lineAccessTokenCookie.value = response.value?.access_token;
             lineIdTokenCookie.value = store.idToken;
+            console.log(`cookieにセットした値は、${lineAccessTokenCookie.value}です。`);
 
         }
 
@@ -67,8 +69,10 @@ onMounted(async () => {
     try {
         let accessToken: string | null;
         if (lineAccessTokenCookie.value) {
+            console.log("cookieから値を取得しました");
             accessToken = lineAccessTokenCookie.value
         } else {
+            console.log("storeから値を取得しました");
             accessToken = store.accessToken;
         }
 
