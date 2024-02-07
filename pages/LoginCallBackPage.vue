@@ -37,6 +37,9 @@ const request = {
     'code': code
 }
 
+console.log("りくえすと");
+console.log(request);
+
 // Constant
 const LINE_PROFILE_URL = "https://api.line.me/v2/profile";
 
