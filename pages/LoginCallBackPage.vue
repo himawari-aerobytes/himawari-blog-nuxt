@@ -46,13 +46,13 @@ onMounted(async () => {
     try {
         if (!lineAccessTokenCookie.value) {
 
-            const { data } = await useFetch<{ access_token: string, id_token: string }>(url, {
+            const { data } = await useFetch<{ access_token: string; id_token: string }>(url, {
                 method: 'POST',
                 body: request,
             });
 
             // store
-            // store.accessToken = data.value!.access_token;
+            store.accessToken = data.value!.access_token;
 
             console.log("data")
             console.log(data)
