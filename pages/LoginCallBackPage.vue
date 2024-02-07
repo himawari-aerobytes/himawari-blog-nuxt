@@ -52,7 +52,7 @@ onMounted(async () => {
             });
 
             // store
-            store.accessToken = data.value!.access_token;
+            // store.accessToken = data.value!.access_token;
 
             console.log("data")
             console.log(data)
