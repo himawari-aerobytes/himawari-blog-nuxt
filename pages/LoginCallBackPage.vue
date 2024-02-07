@@ -27,7 +27,9 @@ const router = useRouter();
 const route = useRoute();
 const code = route.params.code;
 
-const runtimeConfig = useRuntimeConfig();
+console.log("コード")
+console.log(code);
+
 const url = 'https://wdruieg1nl.execute-api.ap-northeast-1.amazonaws.com/himawari-line-login-1';
 
 
