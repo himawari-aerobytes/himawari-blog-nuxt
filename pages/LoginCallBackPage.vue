@@ -25,16 +25,12 @@ const lineUserIdCookie = useCookie('line_userId', { maxAge: MAX_AGE, secure: tru
 // Router(URL Paths)
 const router = useRouter();
 const route = useRoute();
-const code = route.params.code;
-
-console.log("コード")
-console.log(code);
 
 const url = 'https://wdruieg1nl.execute-api.ap-northeast-1.amazonaws.com/himawari-line-login-1';
 
 
 const request = {
-    'code': code
+    'code': route.query.code
 }
 
 console.log("りくえすと");
