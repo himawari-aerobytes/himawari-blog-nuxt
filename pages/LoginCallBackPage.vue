@@ -54,6 +54,9 @@ onMounted(async () => {
             // store
             store.accessToken = data.value!.access_token;
 
+            console.log("data")
+            console.log(data)
+
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
