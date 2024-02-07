@@ -53,7 +53,7 @@ onMounted(async () => {
 
             // store
             store.accessToken = data.value!.access_token;
-            
+
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
@@ -85,6 +85,8 @@ onMounted(async () => {
         const { data: response } = await useFetch<{ pictureUrl: string, displayName: string, userId: string }>(LINE_PROFILE_URL, {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
+
+        console.log("2回目のログイン");
 
         // store
         store.pictureUrl = response.value?.pictureUrl || '';
