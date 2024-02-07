@@ -46,29 +46,18 @@ onMounted(async () => {
     try {
         if (!lineAccessTokenCookie.value) {
 
-            const response = await fetch(url, {
+            const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
                 method: 'POST',
-                body: JSON.stringify(request)
+                body: request,
             });
 
-            if (!response.ok) {
-                throw new Error("Tokenの取得に失敗しました。")
-            }
-
-            // const { data: response } = await useFetch<{ access_token: string, id_token: string }>(url, {
-            //     method: 'POST',
-            //     body: request,
-            // });
-
             // store
-            // store.accessToken = response.value?.access_token || null;
-            console.log(`response.value`);
-            console.log(response.json());
+            store.accessToken = response.value?.access_token || null;
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
             // Cookie
-            // lineAccessTokenCookie.value = response.value?.access_token;
+            lineAccessTokenCookie.value = response.value?.access_token;
             lineIdTokenCookie.value = store.idToken;
             console.log(`cookieにセットした値は、${lineAccessTokenCookie.value}です。`);
 
