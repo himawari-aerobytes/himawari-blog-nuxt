@@ -46,23 +46,24 @@ onMounted(async () => {
     try {
         if (!lineAccessTokenCookie.value) {
 
-            const { data } = await useFetch<{ access_token: string; id_token: string }>(url, {
+            const data = await fetch(url, {
                 method: 'POST',
-                body: request,
+                body: JSON.stringify(request)
             });
 
             // store
             // store.accessToken = data.value!.access_token;
 
             console.log("data")
-            console.log(data)
+            console.log(data.json())
 
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
             // Cookie
-            lineAccessTokenCookie.value = data.value!.access_token;
-            lineIdTokenCookie.value = store.idToken;
+            const response = await data.json();
+            lineAccessTokenCookie.value = await response.access_token;
+            lineIdTokenCookie.value = await response.id_token;
             console.log(`cookieにセットした値は、${lineAccessTokenCookie.value}です。`);
 
         }
