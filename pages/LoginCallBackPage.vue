@@ -51,17 +51,15 @@ onMounted(async () => {
                 body: JSON.stringify(request)
             });
 
+            const response = await data.json();
+
             // store
-            // store.accessToken = data.value!.access_token;
-
-            console.log("data")
-            console.log(data.json())
-
+            store.accessToken = await response.access_token;
 
             console.log(`storeにセットした値は、${store.accessToken}です。`);
 
             // Cookie
-            const response = await data.json();
+
             lineAccessTokenCookie.value = await response.access_token;
             lineIdTokenCookie.value = await response.id_token;
             console.log(`cookieにセットした値は、${lineAccessTokenCookie.value}です。`);
@@ -86,16 +84,18 @@ onMounted(async () => {
 
         console.log(accessToken);
 
-        const { data: response } = await useFetch<{ pictureUrl: string, displayName: string, userId: string }>(LINE_PROFILE_URL, {
+        const data = await fetch(LINE_PROFILE_URL, {
             headers: { Authorization: `Bearer ${accessToken}` }
         });
+
+        const response =await data.json();
 
         console.log("2回目のログイン");
 
         // store
-        store.pictureUrl = response.value?.pictureUrl || '';
-        store.displayName = response.value?.displayName || '';
-        store.userId = response.value?.userId || '';
+        store.pictureUrl = await response.pictureUrl || '';
+        store.displayName = response.displayName || '';
+        store.userId = response.userId || '';
 
         // Cookie Set
         linePictureUrlCookie.value = store.pictureUrl;
