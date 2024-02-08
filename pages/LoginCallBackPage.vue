@@ -33,9 +33,6 @@ const request = {
     'code': route.query.code
 }
 
-console.log("りくえすと");
-console.log(request);
-
 // Constant
 const LINE_PROFILE_URL = "https://api.line.me/v2/profile";
 
@@ -52,17 +49,13 @@ onMounted(async () => {
             });
 
             const response = await data.json();
-
             // store
             store.accessToken = await response.access_token;
 
-            console.log(`storeにセットした値は、${store.accessToken}です。`);
-
             // Cookie
-
             lineAccessTokenCookie.value = await response.access_token;
             lineIdTokenCookie.value = await response.id_token;
-            console.log(`cookieにセットした値は、${lineAccessTokenCookie.value}です。`);
+        
 
         }
 
@@ -75,10 +68,8 @@ onMounted(async () => {
     try {
         let accessToken: string | null;
         if (lineAccessTokenCookie.value) {
-            console.log("cookieから値を取得しました");
             accessToken = lineAccessTokenCookie.value
         } else {
-            console.log("storeから値を取得しました");
             accessToken = store.accessToken;
         }
 
@@ -89,8 +80,6 @@ onMounted(async () => {
         });
 
         const response =await data.json();
-
-        console.log("2回目のログイン");
 
         // store
         store.pictureUrl = await response.pictureUrl || '';
