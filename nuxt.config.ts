@@ -30,6 +30,7 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'Himawari Project' },
         { property: 'og:image', content: '/app/himawari.ico', },
+        { name:'google-adsense-account', content:'ca-pub-6651283997191475' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/app/himawari.ico' }
