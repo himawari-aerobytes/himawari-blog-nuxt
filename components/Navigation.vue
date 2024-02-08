@@ -19,7 +19,7 @@
 
                     <v-menu activator="#menu-activator">
                         <v-list>
-                            <v-list-item class="text-white">
+                            <v-list-item class="text-red-500">
                                 <v-list-item-title @click="logout">ログアウトする</v-list-item-title>
                             </v-list-item>
                         </v-list>
