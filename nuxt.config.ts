@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     public: {
       contactLink: process.env.CONTACT_LINK,
       lineChannelId: process.env.LINE_CHANNEL_ID,
-      linkLineSignIn: process.env.LINK_LINE_SIGN_IN 
+      linkLineSignIn: process.env.LINK_LINE_SIGN_IN,
+      blogLink: process.env.BLOG_LINK,
     }
   },
   postcss: {
