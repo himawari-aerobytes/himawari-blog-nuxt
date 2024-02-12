@@ -1,5 +1,6 @@
 <template>
-    <v-navigation-drawer :permanent="store.isShow" app dark :width="200">
+    <v-navigation-drawer :permanent="!display.smAndDown.value" v-model="show" mobile-breakpoint="md" app dark
+        :width="200">
         <v-list nav dense>
             <v-list-subheader>Himawari</v-list-subheader>
             <v-list-item>
@@ -44,12 +45,13 @@
 
 <script setup lang="ts">
 import { useSidebarStore } from '@/composables/SideBarStore';
+import { useDisplay } from 'vuetify/lib/framework.mjs';
 
 const store = useSidebarStore();
+const display = useDisplay();
 
-const toggleSidebar = () => {
-    store.changeShow();
-}
-
+const show = computed(() => {
+    return !display.smAndDown.value || store.isShow 
+})
 
 </script>
