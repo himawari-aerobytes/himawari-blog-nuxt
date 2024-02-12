@@ -38,8 +38,7 @@ export default {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f44336;
-    color: #fff;
+    color: #f44336;
     font-family: Arial, sans-serif;
 }
 
@@ -51,20 +50,22 @@ export default {
 .error-message {
     font-size: 2rem;
     margin-bottom: 2rem;
+    color:black;
 }
 
 .error-link {
-    padding: 1rem 2rem;
-    background-color: #fff;
-    color: #f44336;
-    font-size: 1.5rem;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 20px;
     transition: background-color 0.3s ease;
 }
 
 .error-link:hover {
-    background-color: #f44336;
+    background-color: #1559a2;
     color: #fff;
 }
 
