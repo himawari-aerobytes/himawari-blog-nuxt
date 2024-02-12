@@ -4,17 +4,17 @@
             <v-list-subheader>Himawari</v-list-subheader>
             <v-list-item>
                 <v-list-item-title class="text-center">
-                    <nuxt-link to="/">ホーム</nuxt-link>
+                    <nuxt-link @click.native="store.changeShow" to="/">ホーム</nuxt-link>
                 </v-list-item-title>
             </v-list-item>
             <v-list-item>
                 <v-list-item-title class="text-center">
-                    <nuxt-link to="/ProfilePage">プロフィール</nuxt-link>
+                    <nuxt-link @click.native="store.changeShow" to="/ProfilePage">プロフィール</nuxt-link>
                 </v-list-item-title>
             </v-list-item>
             <v-list-item>
                 <v-list-item-title class="text-center">
-                    <nuxt-link to="/ContactPage">お問い合わせ</nuxt-link>
+                    <nuxt-link @click.native="store.changeShow" to="/ContactPage">お問い合わせ</nuxt-link>
                 </v-list-item-title>
             </v-list-item>
 
@@ -46,6 +46,10 @@
 import { useSidebarStore } from '@/composables/SideBarStore';
 
 const store = useSidebarStore();
-const router = useRouter();
+
+const toggleSidebar = () => {
+    store.changeShow();
+}
+
 
 </script>
