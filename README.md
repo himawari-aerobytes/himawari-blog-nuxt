@@ -76,7 +76,7 @@ bun run preview
 
 ```
 
-# environment　args
+# 環境変数(.envファイル)
 You must set environment arguments.  
 LINE_CHANNEL_ID is LINE Developer tools channel id.   
 LINK_LINE_SIGN_IN is AWS Lambda link. It works for getting LINE service token.  
