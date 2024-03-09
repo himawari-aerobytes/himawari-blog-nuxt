@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  letsencrypt:
+    image: certbot/certbot
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - letsencrypt-cert:/etc/letsencrypt
+    entrypoint:
+      certbot certonly
+        --standalone
+        -m the1stmovi@gmail.com
+        --agree-tos
+        -d ${DOMAIN}
+volumes:
+  letsencrypt-cert:
+    external: true
